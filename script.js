@@ -40,7 +40,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Apply fade-in to sections and cards
 document.querySelectorAll(
-    '.service-card, .step, .about-content, .about-visual, .contact-content, .contact-form, .section-header'
+    '.service-card, .step, .about-content, .about-visual, .contact-content, .contact-form, .section-header, .award-card, .award-detail-card, .finalist-card'
 ).forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
@@ -56,9 +56,19 @@ document.querySelectorAll('.step').forEach((step, i) => {
     step.style.transitionDelay = `${i * 150}ms`;
 });
 
+// Stagger animation for award cards
+document.querySelectorAll('.award-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 100}ms`;
+});
+
+// Stagger animation for finalist cards
+document.querySelectorAll('.finalist-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 100}ms`;
+});
+
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
+if (contactForm) contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.textContent;
