@@ -31,6 +31,7 @@
     --red-dark: #E02A2A;
     --white: #FFFFFF;
     --orange: #FF8730;
+    --orange-dark: #F07820;
     --peach: #FFB9AF;
     --peach-light: #FFF5F3;
     --gray-50: #F9FAFB;
@@ -176,7 +177,7 @@ h4 {
 }
 
 .btn-cta:hover {
-    background: #F07820;
+    background: var(--orange-dark);
     box-shadow: 0 6px 24px rgba(255, 135, 48, 0.45);
     transform: translateY(-2px);
 }
@@ -282,7 +283,7 @@ h4 {
     height: 2px;
     background: var(--gray-800);
     border-radius: 2px;
-    transition: all var(--transition);
+    transition: transform var(--transition), opacity var(--transition);
 }
 
 /* --- Hero --- */
@@ -644,7 +645,7 @@ h4 {
     border-radius: 20px;
     padding: 40px 32px;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .award-card:hover {
@@ -699,9 +700,9 @@ h4 {
     margin-bottom: 0;
 }
 
-.award-note {
-    font-size: 0.875rem !important;
-    color: var(--gray-400) !important;
+.award-card .award-note {
+    font-size: 0.875rem;
+    color: var(--gray-400);
     font-style: italic;
 }
 
@@ -766,7 +767,7 @@ h4 {
     border: 1px solid var(--gray-100);
     border-radius: 24px;
     padding: 48px;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow var(--transition);
 }
 
 .award-detail-card:hover {
@@ -836,7 +837,7 @@ h4 {
     border-radius: 16px;
     padding: 32px 24px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .finalist-card:hover {
@@ -877,7 +878,7 @@ h4 {
     border-radius: 16px;
     padding: 32px 28px;
     text-align: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .speaking-card:hover {
@@ -1269,7 +1270,7 @@ h4 {
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         transform: translateY(-120%);
         opacity: 0;
-        transition: all var(--transition);
+        transition: transform var(--transition), opacity var(--transition);
         pointer-events: none;
     }
 
