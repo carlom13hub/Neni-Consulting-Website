@@ -66,6 +66,27 @@ document.querySelectorAll('.finalist-card').forEach((card, i) => {
     card.style.transitionDelay = `${i * 100}ms`;
 });
 
+// Selector chips (multi-select toggle)
+const chips = document.querySelectorAll('.selector-chips .chip');
+const interestInput = document.getElementById('interestValue');
+
+chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+        const wasSelected = chip.classList.contains('selected');
+        chip.classList.toggle('selected');
+
+        if (!wasSelected) {
+            chip.classList.add('just-selected');
+            setTimeout(() => chip.classList.remove('just-selected'), 300);
+        }
+
+        // Sync hidden input with all selected values
+        const selected = [...document.querySelectorAll('.selector-chips .chip.selected')]
+            .map(c => c.dataset.value);
+        if (interestInput) interestInput.value = selected.join(',');
+    });
+});
+
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) contactForm.addEventListener('submit', (e) => {
