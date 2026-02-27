@@ -40,30 +40,44 @@ const observer = new IntersectionObserver((entries) => {
 
 // Apply fade-in to sections and cards
 document.querySelectorAll(
-    '.service-card, .step, .about-content, .about-visual, .contact-content, .contact-form, .section-header, .award-card, .award-detail-card, .finalist-card'
+    '.service-card, .step, .about-content, .about-visual, .contact-content, .contact-form, .section-header, .award-card, .award-detail-card, .finalist-card, .comparison-card, .cpo-teaser-content, .cpo-teaser-visual, .faq-card'
 ).forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
 });
 
-// Stagger animation for service cards
-document.querySelectorAll('.service-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 100}ms`;
+// Stagger animations
+[
+    ['.service-card', 100],
+    ['.step', 150],
+    ['.award-card', 100],
+    ['.finalist-card', 100],
+    ['.comparison-card', 100],
+    ['.faq-card', 80],
+].forEach(([selector, delay]) => {
+    document.querySelectorAll(selector).forEach((el, i) => {
+        el.style.transitionDelay = `${i * delay}ms`;
+    });
 });
 
-// Stagger animation for steps
-document.querySelectorAll('.step').forEach((step, i) => {
-    step.style.transitionDelay = `${i * 150}ms`;
-});
+// FAQ accordion toggle
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const card = btn.closest('.faq-card');
+        const isActive = card.classList.contains('active');
 
-// Stagger animation for award cards
-document.querySelectorAll('.award-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 100}ms`;
-});
+        // Close all other cards
+        document.querySelectorAll('.faq-card.active').forEach(open => {
+            if (open !== card) {
+                open.classList.remove('active');
+                open.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            }
+        });
 
-// Stagger animation for finalist cards
-document.querySelectorAll('.finalist-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 100}ms`;
+        // Toggle current card
+        card.classList.toggle('active', !isActive);
+        btn.setAttribute('aria-expanded', String(!isActive));
+    });
 });
 
 // Selector chips (multi-select toggle)
@@ -94,12 +108,12 @@ if (contactForm) contactForm.addEventListener('submit', (e) => {
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.textContent;
     btn.textContent = 'Message Sent!';
-    btn.style.background = '#22C55E';
+    btn.classList.add('btn-success');
     btn.disabled = true;
 
     setTimeout(() => {
         btn.textContent = originalText;
-        btn.style.background = '';
+        btn.classList.remove('btn-success');
         btn.disabled = false;
         contactForm.reset();
     }, 3000);

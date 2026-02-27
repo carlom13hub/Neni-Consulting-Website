@@ -192,6 +192,10 @@ h4 {
     transform: translateY(-1px);
 }
 
+.btn-success {
+    background: #22C55E;
+}
+
 .btn-outline {
     background: transparent;
     color: var(--gray-800);
@@ -731,6 +735,299 @@ h4 {
     margin-bottom: 48px;
 }
 
+/* --- Fractional CPO Page --- */
+.cpo-scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+/* --- Comparison Cards --- */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.comparison-grid > .comparison-card:not(.comparison-card-highlight) {
+    transform: scale(0.85);
+}
+
+.comparison-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 20px;
+    padding: 40px 32px;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.comparison-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(255, 49, 48, 0.08);
+}
+
+.comparison-card-highlight {
+    border-color: var(--peach);
+    background: var(--peach-light);
+}
+
+.comparison-card-highlight:hover {
+    border-color: var(--red);
+    box-shadow: 0 12px 40px rgba(255, 49, 48, 0.15);
+}
+
+.comparison-label {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+}
+
+.comparison-label-accent {
+    color: var(--red);
+}
+
+.comparison-card h3 {
+    font-size: 1.375rem;
+    color: var(--gray-900);
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.comparison-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comparison-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.comparison-attr {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--orange);
+}
+
+.comparison-value {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+/* --- CPO Teaser (Landing Page) --- */
+.cpo-teaser {
+    padding: var(--section-padding);
+    background: var(--peach-light);
+}
+
+.cpo-teaser-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.cpo-teaser-content h2 {
+    margin-bottom: 24px;
+}
+
+.cpo-teaser-content p {
+    color: var(--gray-600);
+    margin-bottom: 32px;
+    font-size: 1.0625rem;
+}
+
+.cpo-teaser-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.cpo-teaser-graphic {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.cpo-block {
+    position: absolute;
+    border-radius: 24px;
+}
+
+.cpo-block-1 {
+    width: 180px;
+    height: 220px;
+    background: var(--red);
+    top: 10px;
+    left: 10px;
+    border-radius: 32px;
+}
+
+.cpo-block-2 {
+    width: 140px;
+    height: 160px;
+    background: var(--orange);
+    bottom: 10px;
+    right: 10px;
+    border-radius: 28px;
+}
+
+.cpo-dot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--peach);
+    border-radius: 50%;
+    top: 0;
+    right: 40px;
+}
+
+/* --- FAQ Accordion --- */
+.faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.faq-card:hover {
+    border-color: var(--peach);
+    box-shadow: 0 4px 20px rgba(255, 49, 48, 0.06);
+}
+
+.faq-card.active {
+    border-color: var(--peach);
+    box-shadow: 0 8px 32px rgba(255, 49, 48, 0.1);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 24px 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    color: var(--gray-900);
+    line-height: 1.4;
+    transition: color var(--transition);
+}
+
+.faq-question:hover {
+    color: var(--red);
+}
+
+.faq-question:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: -2px;
+    border-radius: 16px;
+}
+
+.faq-question:active {
+    transform: scale(0.995);
+}
+
+.faq-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--peach-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color var(--transition);
+}
+
+.faq-card.active .faq-icon {
+    transform: rotate(45deg);
+    background: var(--red);
+}
+
+.faq-icon svg {
+    transition: stroke var(--transition);
+}
+
+.faq-card.active .faq-icon svg line {
+    stroke: var(--white);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-card.active .faq-answer {
+    max-height: 600px;
+}
+
+.faq-answer-inner {
+    padding: 0 28px 28px;
+    border-top: 1px solid var(--gray-100);
+    padding-top: 20px;
+}
+
+.faq-answer-inner ul {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-answer-inner li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+.faq-answer-inner li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--peach);
+}
+
+.faq-answer-inner li strong {
+    color: var(--gray-800);
+    font-weight: 600;
+}
+
 /* --- Awards Page --- */
 .awards-page-hero {
     position: relative;
@@ -749,6 +1046,12 @@ h4 {
     color: var(--gray-600);
     max-width: 520px;
     margin: 0 auto;
+}
+
+.hero-logo {
+    max-width: 340px;
+    width: 100%;
+    margin-top: 2.5rem;
 }
 
 .award-detail {
@@ -866,6 +1169,13 @@ h4 {
     color: var(--orange);
 }
 
+.card-description {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
 .speaking-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -920,28 +1230,6 @@ h4 {
     background: var(--red);
     position: relative;
     overflow: hidden;
-}
-
-.contact::before {
-    content: '';
-    position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.contact::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.04);
 }
 
 .contact-container {
@@ -1250,6 +1538,24 @@ h4 {
         grid-template-columns: 1fr;
         gap: 48px;
     }
+
+    .cpo-scenarios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 800px;
+    }
+
+    .cpo-teaser-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .cpo-teaser-visual {
+        order: -1;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1348,6 +1654,26 @@ h4 {
         grid-template-columns: 1fr;
     }
 
+    .cpo-scenarios-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .cpo-teaser-graphic {
+        width: 240px;
+        height: 240px;
+    }
+
+    .cpo-block-1 { width: 140px; height: 170px; }
+    .cpo-block-2 { width: 110px; height: 130px; }
+
     .footer-container {
         justify-content: flex-start;
     }
@@ -1375,5 +1701,15 @@ h4 {
     .btn {
         padding: 12px 24px;
         font-size: 0.9375rem;
+    }
+
+    .faq-question {
+        padding: 20px 20px;
+        font-size: 0.9375rem;
+    }
+
+    .faq-answer-inner {
+        padding: 0 20px 20px;
+        padding-top: 16px;
     }
 }
